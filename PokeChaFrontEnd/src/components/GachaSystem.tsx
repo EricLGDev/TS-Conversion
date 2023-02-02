@@ -1,3 +1,4 @@
+import React from 'react'
 import { useAuthContext } from '../hooks/useAuthContext'
 import { useCardsContext } from '../hooks/useCardsContext'
 
@@ -5,8 +6,8 @@ const GachaSystem = () => {
   const { user } = useAuthContext()
   const { dispatch } = useCardsContext()
 
-  async function getPokemonData(pokemonId) {
-      const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`);
+  async function getPokemonData(pokemonId: number) {
+      const response = fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`);
       const data = await response.json();
       return data;
     }
@@ -40,7 +41,7 @@ const GachaSystem = () => {
         },
         body: JSON.stringify(card)
       };
-      const response = await fetch('https://PokeCha-api.onrender.com/api/cards', options);
+      const response = fetch('https://PokeCha-api.onrender.com/api/cards', options);
       const json = await response.json();
       if (response.ok) {
         dispatch({type: 'CREATE_CARDS', payload: json})
@@ -54,3 +55,7 @@ const GachaSystem = () => {
 
 
 export default GachaSystem
+
+function fetch(arg0: string) {
+  throw new Error('Function not implemented.')
+}
