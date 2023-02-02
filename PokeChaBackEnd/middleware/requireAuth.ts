@@ -1,6 +1,7 @@
-const jwt = require('jsonwebtoken')
-const User = require('../models/userModel')
-const ObjectId = require('mongoose').Types.ObjectId
+let jwt = require('jsonwebtoken')
+let User = require('../models/userModel')
+let ObjectId = require('mongoose').Types.ObjectId
+
 
 const requireAuth = async (req: { headers: { authorization: any }; user: any }, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { error: string }): void; new(): any } } }, next: () => void) => {
     // CHECK IF USER IS AUTHENTICATED

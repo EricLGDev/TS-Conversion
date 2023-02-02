@@ -1,4 +1,4 @@
-const Card = require('../models/cardModel')
+let Card = require('../models/cardModel')
 const mongoose = require('mongoose')
 
 // GET ALL CARDS IN COLLECTION

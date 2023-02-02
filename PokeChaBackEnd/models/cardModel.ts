@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
-const Schema = mongoose.Schema
+import { Schema } from "mongoose";
 
 const cardSchema = new Schema({
     id: {

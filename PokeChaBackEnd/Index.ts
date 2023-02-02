@@ -1,11 +1,11 @@
 //DEPENDENCIES
 require('dotenv').config()
-const cors = require('cors')
+import cors from 'cors'
 
-const express = require('express')
-const mongoose = require('mongoose')
-const cardsRoutes = require('./routes/cards')
-const userRoutes = require('./routes/user')
+import express from 'express';
+let mongoose = require('mongoose')
+let cardsRoutes = require('./routes/cards')
+let userRoutes = require('./routes/user')
 
 // BUILD EXPRESS APP
 const app = express()
@@ -34,4 +34,3 @@ mongoose.connect(process.env.MONGO_URI)
     console.log(error)
   })
 
-export {}
