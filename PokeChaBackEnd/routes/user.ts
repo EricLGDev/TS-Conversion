@@ -1,9 +1,9 @@
-const express = require('express');
+let express = require('express');
 
 // CONTROLLER FUNCTIONS
-const { loginUser, singupUser, signupUser } = require('../controllers/userController')
+let { loginUser, singupUser, signupUser } = require('../controllers/userController')
 
-const router = express.Router()
+let router = express.Router()
 
 // ROUTES
 // LOGIN

@@ -1,10 +1,10 @@
-const express = require('express')
+let express = require('express')
 
-const {getCards, postCard, deleteCard, favoriteCard } = require('../controllers/cardController')
-const requireAuth = require('../middleware/requireAuth')
-const limiter = require('../middleware/rateLimiter')
+let {getCards, postCard, deleteCard, favoriteCard } = require('../controllers/cardController')
+let requireAuth = require('../middleware/requireAuth')
+let limiter = require('../middleware/rateLimiter')
 
-const router = express.Router()
+let router = express.Router()
 
 // IN PLACE TO REQUIRE AUTH FOR ALL ROUTES
 router.use(requireAuth)

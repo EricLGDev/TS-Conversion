@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 import { Schema } from "mongoose";
 
-const cardSchema = new Schema({
+let cardSchema = new Schema({
     id: {
         type: Number,
         require: true

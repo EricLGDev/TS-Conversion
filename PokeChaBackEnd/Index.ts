@@ -3,12 +3,12 @@ require('dotenv').config()
 import cors from 'cors'
 
 import express from 'express';
-let mongoose = require('mongoose')
-let cardsRoutes = require('./routes/cards')
-let userRoutes = require('./routes/user')
+let  mongoose = require('mongoose')
+let  cardsRoutes = require('./routes/cards')
+let  userRoutes = require('./routes/user')
 
 // BUILD EXPRESS APP
-const app = express()
+let app = express()
 
 // MIDDLEWARE
 app.use(express.json())

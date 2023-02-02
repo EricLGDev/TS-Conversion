@@ -1,20 +1,20 @@
-const User = require('../models/userModel')
-const jwt = require('jsonwebtoken')
+let User = require('../models/userModel')
+let jwt = require('jsonwebtoken')
 
-const createToken = (id: any) => {
+let createToken = (id: any) => {
   return jwt.sign({id}, process.env.SECRET, { expiresIn: '24h' })
 }
 
 // LOGIN
-const loginUser = async (req: { body: { email: any; password: any } }, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { email?: any; token?: any; error?: any }): void; new(): any } } }) => {
-  const {email, password} = req.body
+let loginUser = async (req: { body: { email: any; password: any } }, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { email?: any; token?: any; error?: any }): void; new(): any } } }) => {
+  let {email, password} = req.body
 
   try {
-    const user = await User.login(email, password)
-    const user_id = user.id
+    let user = await User.login(email, password)
+    let user_id = user.id
     
     // CREATE TOKEN
-    const token = createToken(user.id)
+    let token = createToken(user.id)
     
 
     res.status(200).json({email, token})
@@ -25,14 +25,14 @@ const loginUser = async (req: { body: { email: any; password: any } }, res: { st
 }
 
 // SIGNUP
-const signupUser = async (req: { body: { email: any; password: any } }, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { email?: any; token?: any; error?: any }): void; new(): any } } }) => {
-  const {email, password} = req.body
+let signupUser = async (req: { body: { email: any; password: any } }, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { email?: any; token?: any; error?: any }): void; new(): any } } }) => {
+  let {email, password} = req.body
 
   try {
-    const user = await User.signup(email, password)
+    let user = await User.signup(email, password)
 
     // CREATE TOKEN
-    const token = createToken(user.id)
+    let token = createToken(user.id)
 
     res.status(200).json({email, token})
   } catch (error) {

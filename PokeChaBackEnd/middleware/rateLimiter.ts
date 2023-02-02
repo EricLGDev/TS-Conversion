@@ -1,6 +1,6 @@
 import rateLimiter from 'express-rate-limit'
 
-const limiter = rateLimiter({
+let limiter = rateLimiter({
 max: 3,
 windowMs: 86000000, //24 Hours
 message: { error: "You're out of pokeballs, come back tomorrow" },
