@@ -8,16 +8,16 @@ import CardDetails from '../components/CardDetails'
 import GachaSystem from '../components/GachaSystem'
 import AudioPlayer from '../components/AudioPlayer'
 
-const Home = () => {
-  const {cards, dispatch} = useCardsContext()
-  const {user} = useAuthContext()
+let Home = () => {
+  let {cards, dispatch} = useCardsContext()
+  let {user} = useAuthContext()
 
   useEffect(() => {
-    const fetchCards = async () => {
-      const response = await fetch('https://PokeCha-api.onrender.com/api/cards', {
+    let fetchCards = async () => {
+      let response = await fetch('https://PokeCha-api.onrender.com/api/cards', {
         headers: {'Authorization': `Bearer ${user.token}`},
       })
-      const json = await response.json()
+      let json = await response.json()
 
       if (response.ok) {
         dispatch({type: 'SET_CARDS', payload: json})

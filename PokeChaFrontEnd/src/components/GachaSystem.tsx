@@ -2,28 +2,28 @@ import React from 'react'
 import { useAuthContext } from '../hooks/useAuthContext'
 import { useCardsContext } from '../hooks/useCardsContext'
 
-const GachaSystem = () => {
-  const { user } = useAuthContext()
-  const { dispatch } = useCardsContext()
+let GachaSystem = () => {
+  let { user } = useAuthContext()
+  let { dispatch } = useCardsContext()
 
   async function getPokemonData(pokemonId: number) {
-      const response = fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`);
-      const data = await response.json();
+      let response = fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`);
+      let data = await response.json();
       return data;
     }
 
   async function rollPokemon() {
 
-      const randomPokemonId = Math.floor(Math.random() * 905) + 1;
-      const data = await getPokemonData(randomPokemonId);
-      const pokemonId = data.id;
-      const pokemonName = data.name;
-      const pokemonType1 = data.types[0].type.name;
-      const pokemonType2 = data.types[1]?.type.name ?? null;
-      const pokemonWeight = data.weight;
-      const pokemonHeight = data.height;
-      const pokemonImage = data.sprites.front_default;
-      const card = {
+      let randomPokemonId = Math.floor(Math.random() * 905) + 1;
+      let data = await getPokemonData(randomPokemonId);
+      let pokemonId = data.id;
+      let pokemonName = data.name;
+      let pokemonType1 = data.types[0].type.name;
+      let pokemonType2 = data.types[1]?.type.name ?? null;
+      let pokemonWeight = data.weight;
+      let pokemonHeight = data.height;
+      let pokemonImage = data.sprites.front_default;
+      let card = {
           id: pokemonId,
           name: pokemonName,
           type1: pokemonType1,
@@ -32,7 +32,7 @@ const GachaSystem = () => {
           weight: pokemonWeight,
           image: pokemonImage,
       };
-      const options = {
+      let options = {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${user.token}`,
@@ -41,8 +41,8 @@ const GachaSystem = () => {
         },
         body: JSON.stringify(card)
       };
-      const response = fetch('https://PokeCha-api.onrender.com/api/cards', options);
-      const json = await response.json();
+      let response = fetch('https://PokeCha-api.onrender.com/api/cards', options);
+      let json = await response.json();
       if (response.ok) {
         dispatch({type: 'CREATE_CARDS', payload: json})
       }

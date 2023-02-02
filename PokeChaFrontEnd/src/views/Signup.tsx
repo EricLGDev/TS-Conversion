@@ -4,12 +4,12 @@ import email_icon from "../assets/images/email_icon.png"
 import password_icon from "../assets/images/pass.png"
 
 
-const Signup = () => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const {signup, error, isLoading} = useSignup()
+let Signup = () => {
+  let [email, setEmail] = useState('')
+  let [password, setPassword] = useState('')
+  let {signup, error, isLoading} = useSignup()
 
-  const handleSubmit = async (e) => {
+  let handleSubmit = async (e) => {
     e.preventDefault()
 
     await signup(email, password)

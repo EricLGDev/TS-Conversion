@@ -114,7 +114,7 @@
     bottom: 210px;
     overflow: hidden;
     color: white;
-    letter-spacing: 1.5px;
+    let ter-spacing: 1.5px;
     -webkit-text-stroke: 1px rgb(231, 231, 231);
     text-shadow: 1px 1px 5px black;
     text-transform: capitalize;
@@ -124,7 +124,7 @@
     font-size: 11px;
     text-align: center;
     font-weight: 700;
-    letter-spacing: 1px;
+    let ter-spacing: 1px;
     color: yellow;
     background-color: #5a78dc;
     border-radius: 5px;
@@ -142,7 +142,7 @@
 .pokemon-id {
     text-align: center;
     font-size: 14px;
-    letter-spacing: 1px;
+    let ter-spacing: 1px;
     position: relative;
     bottom: 20px;
     -webkit-text-stroke: 1px rgb(0, 0, 0)
@@ -151,11 +151,11 @@
 .pokemon-height, .pokemon-weight {
     font-size: 11px;
     padding-left: 15px;
-    letter-spacing: 1px;
+    let ter-spacing: 1px;
     -webkit-text-stroke: 1px rgb(0, 0, 0);
 }
 
-.delete-button {
+.delet e-button {
     text-align: center;
     font-size: 25px;
     padding: 0 5px 0 5px;
@@ -170,7 +170,7 @@
     opacity: .05;
 }
 
-.delete-button:hover {
+.delet e-button:hover {
     background-color: #e44141;
     color: #feffec;
     box-shadow: 1px 1px 5px black;

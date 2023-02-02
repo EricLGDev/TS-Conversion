@@ -9,7 +9,7 @@ interface State {
 }
 
 interface Action {
-  type: 'SET_CARDS' | 'CREATE_CARDS' | 'DELETE_CARD';
+  type: 'SET_CARDS' | 'CREATE_CARDS' | 'DElet E_CARD';
   payload: any;
 }
 
@@ -18,11 +18,11 @@ interface Props {
   // any props that come into the component
 }
 
-export const CardsContext = createContext<{ state: State; dispatch: React.Dispatch<Action> } | undefined>(
+export let CardsContext = createContext<{ state: State; dispatch: React.Dispatch<Action> } | undefined>(
   undefined
 );
 
-export const cardsReducer = (state: State, action: Action): State => {
+export let cardsReducer = (state: State, action: Action): State => {
   switch (action.type) {
     case 'SET_CARDS':
       return {
@@ -32,7 +32,7 @@ export const cardsReducer = (state: State, action: Action): State => {
       return {
         cards: [action.payload, ...state.cards!],
       };
-    case 'DELETE_CARD':
+    case 'DElet E_CARD':
       return {
         cards: state.cards!.filter((w) => w._id !== action.payload._id),
       };
@@ -41,8 +41,8 @@ export const cardsReducer = (state: State, action: Action): State => {
   }
 };
 
-export const CardsContextProvider = ({ children }: Props) => {
-  const [state, dispatch] = useReducer(cardsReducer, {
+export let CardsContextProvider = ({ children }: Props) => {
+  let [state, dispatch] = useReducer(cardsReducer, {
     cards: [],
   });
 

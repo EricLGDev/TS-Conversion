@@ -1,12 +1,12 @@
 import { useAuthContext } from "./useAuthContext";
 import { useCardsContext } from "./useCardsContext";
 
-export const useLogout = () => {
-    const { dispatch } = useAuthContext()
-    const { dispatch: dispatchCards } = useCardsContext()
+export let useLogout = () => {
+    let { dispatch } = useAuthContext()
+    let { dispatch: dispatchCards } = useCardsContext()
     
 
-    const logout = () => {
+    let logout = () => {
         // REMOVE USER FROM STORAGE
         localStorage.removeItem('user')
 

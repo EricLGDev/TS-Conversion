@@ -5,11 +5,11 @@ import logo from '../assets/images/pokecha-logo.png'
 import "../assets/css/navbar.css"
 import React from 'react'
 
-const Navbar = () => {
-  const { logout } = useLogout()
-  const { user } = useAuthContext()
+let Navbar = () => {
+  let { logout } = useLogout()
+  let { user } = useAuthContext()
 
-  const handleClick = () => {
+  let handleClick = () => {
     logout()
   }
 

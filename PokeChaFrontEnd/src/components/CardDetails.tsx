@@ -5,25 +5,25 @@ import React from 'react'
 
 
 
-const CardDetails = ({ card }) => {
-  const { dispatch } = useCardsContext()
-  const { user } = useAuthContext()
+let CardDetails = ({ card }) => {
+  let { dispatch } = useCardsContext()
+  let { user } = useAuthContext()
 
-  const handleClick = async () => {
+  let handleClick = async () => {
     if (!user) {
       return
     }
 
-    const response = await fetch('https://PokeCha-api.onrender.com/api/cards/' + card._id, {
-      method: 'DELETE',
+    let response = await fetch('https://PokeCha-api.onrender.com/api/cards/' + card._id, {
+      method: 'DElet E',
       headers: {
         'Authorization': `Bearer ${user.token}`
       }
     })
-    const json = await response.json()
+    let json = await response.json()
 
     if (response.ok) {
-      dispatch({type: 'DELETE_CARD', payload: json})
+      dispatch({type: 'DElet E_CARD', payload: json})
     }
   }
 
@@ -38,7 +38,7 @@ const CardDetails = ({ card }) => {
           <p className='pokemon-type'>{card.type1} {card.type2}</p>
           <p className='pokemon-height'>Height: {card.height} dm</p>
           <p className='pokemon-weight'>Weight: {card.weight} hg</p>
-          <button className="btn delete delete-button" onClick={handleClick}><i className="fa fa-trash-o"></i></button>
+          <button className="btn delet e delet e-button" onClick={handleClick}><i className="fa fa-trash-o"></i></button>
         </div>
       </div>
     </div>

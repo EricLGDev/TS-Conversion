@@ -1,21 +1,21 @@
 import { useState } from 'react'
 import { useAuthContext } from './useAuthContext'
 
-export const useLogin = () => {
-  const [error, setError] = useState(null)
-  const [isLoading, setIsLoading] = useState(null)
-  const { dispatch } = useAuthContext()
+export let useLogin = () => {
+  let [error, setError] = useState(null)
+  let [isLoading, setIsLoading] = useState(null)
+  let { dispatch } = useAuthContext()
 
-  const login = async (email: any, password: any) => {
+  let login = async (email: any, password: any) => {
     setIsLoading(true)
     setError(null)
 
-    const response = await fetch('https://PokeCha-api.onrender.com/api/user/login', {
+    let response = await fetch('https://PokeCha-api.onrender.com/api/user/login', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({ email, password })
     })
-    const json = await response.json()
+    let json = await response.json()
 
     if (!response.ok) {
       setIsLoading(false)

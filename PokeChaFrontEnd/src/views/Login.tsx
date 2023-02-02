@@ -4,12 +4,12 @@ import "../assets/css/style.css"
 import email_icon from "../assets/images/email_icon.png"
 import password_icon from "../assets/images/pass.png"
 
-const Login = () => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const {login, error, isLoading} = useLogin()
+let Login = () => {
+  let [email, setEmail] = useState('')
+  let [password, setPassword] = useState('')
+  let {login, error, isLoading} = useLogin()
 
-  const handleSubmit = async (e) => {
+  let handleSubmit = async (e) => {
     e.preventDefault()
 
     await login(email, password)

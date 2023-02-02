@@ -10,7 +10,7 @@ import Navbar from './components/Navbar'
 import React from 'react'
 
 function App() {
-  const { user } = useAuthContext()
+  let { user } = useAuthContext()
 
   return (
     <div className="App">
