@@ -19,3 +19,5 @@ router.delete('/:id', deleteCard)
 router.patch('/:id', favoriteCard)
 
 module.exports = router
+
+export {}

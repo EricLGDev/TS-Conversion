@@ -1,12 +1,12 @@
 const User = require('../models/userModel')
 const jwt = require('jsonwebtoken')
 
-const createToken = (id) => {
+const createToken = (id: any) => {
   return jwt.sign({id}, process.env.SECRET, { expiresIn: '24h' })
 }
 
 // LOGIN
-const loginUser = async (req, res) => {
+const loginUser = async (req: { body: { email: any; password: any } }, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { email?: any; token?: any; error?: any }): void; new(): any } } }) => {
   const {email, password} = req.body
 
   try {
@@ -19,13 +19,13 @@ const loginUser = async (req, res) => {
 
     res.status(200).json({email, token})
   } catch (error) {
-    res.status(400).json({error: error.message})
+    res.status(400).json({error: 'Error'})
   }
 
 }
 
 // SIGNUP
-const signupUser = async (req, res) => {
+const signupUser = async (req: { body: { email: any; password: any } }, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { email?: any; token?: any; error?: any }): void; new(): any } } }) => {
   const {email, password} = req.body
 
   try {
@@ -36,7 +36,7 @@ const signupUser = async (req, res) => {
 
     res.status(200).json({email, token})
   } catch (error) {
-    res.status(400).json({error: error.message})
+    res.status(400).json({error: 'Error'})
   }
 }
 

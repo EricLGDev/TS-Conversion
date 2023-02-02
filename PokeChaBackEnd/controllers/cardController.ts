@@ -2,7 +2,7 @@ const Card = require('../models/cardModel')
 const mongoose = require('mongoose')
 
 // GET ALL CARDS IN COLLECTION
-const getCards = async (req, res) => {
+const getCards = async (req: { user: { id: any } }, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: any): void; new(): any } } }) => {
     const user_id = req.user.id
     const cards = await Card.find({user_id}).sort({createdAt: -1})
   
@@ -11,7 +11,7 @@ const getCards = async (req, res) => {
 
 // ADD NEW CARD TO COLLECTION
 
-const postCard = async (req, res) => {
+const postCard = async (req: { body: { id: any; name: any; type1: any; type2: any; weight: any; height: any; image: any }; user: { id: any } }, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { err: any }): void; new(): any } } }) => {
     const {id, name, type1, type2, weight, height, image} = req.body
     try {
         const user_id = req.user.id
@@ -19,12 +19,12 @@ const postCard = async (req, res) => {
         const card = await Card.create({id, name, type1, type2, weight, height, image, user_id, favorite})
         res.status(200).json(card)
     } catch (err) {
-        res.status(400).json({err: err.message})
+        res.status(400).json({err: 'Error'})
     }
 }
 
 // DELETE A CARD
-const deleteCard = async (req, res) => {
+const deleteCard = async (req: { params: { id: any } }, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { error: string }): void; new(): any } } }) => {
     
     
     const { id }  = req.params
@@ -43,7 +43,7 @@ const deleteCard = async (req, res) => {
 }
 
 // UPDATE CARD FAVORITE
-const favoriteCard = async (req, res) => {
+const favoriteCard = async (req: { params: { id: any }; body: any }, res: { status: (arg0: number) => { (): any; new(): any; json: { (arg0: { error: string }): void; new(): any } } }) => {
     const { id } = req.params
 
     if (!mongoose.Types.ObjectId.isValid(id)) {

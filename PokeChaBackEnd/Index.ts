@@ -14,7 +14,7 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
-app.use((req, res, next) => {
+app.use((req: any, res: any, next: () => void) => {
   next()
 })
 
@@ -30,6 +30,8 @@ mongoose.connect(process.env.MONGO_URI)
       console.log('Connected to DB & listening on port', process.env.PORT)
     })
   })
-  .catch((error) => {
+  .catch((error: any) => {
     console.log(error)
   })
+
+export {}
