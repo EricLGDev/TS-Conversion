@@ -1,8 +1,24 @@
-import { createContext, useReducer } from 'react'
+import React, { createContext, useReducer } from 'react'
 
-export const CardsContext = createContext()
+interface CardAction {
+  type: string,
+  payload: any
+}
 
-export const cardsReducer = (state, action) => {
+interface CardsState {
+  cards: any[]
+}
+
+const initialState: CardsState = {
+  cards: []
+}
+
+const CardsContext = createContext<{ state: CardsState, dispatch: React.Dispatch<CardAction> }>({
+  state: initialState,
+  dispatch: () => null
+})
+
+const cardsReducer = (state: CardsState, action: CardAction) => {
   switch (action.type) {
     case 'SET_CARDS': 
       return {
@@ -21,14 +37,18 @@ export const cardsReducer = (state, action) => {
   }
 }
 
-export const CardsContextProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(cardsReducer, {
-    cards: null
-  })
+interface Props {
+  children: React.ReactNode
+}
+
+const CardsContextProvider = ({ children }: Props) => {
+  const [state, dispatch] = useReducer(cardsReducer, initialState)
 
   return (
-    <CardsContext.Provider value={{...state, dispatch}}>
+    <CardsContext.Provider value={{ state, dispatch }}>
       { children }
     </CardsContext.Provider>
   )
 }
+
+export { CardsContext, CardsContextProvider }
